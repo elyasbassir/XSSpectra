@@ -3,10 +3,9 @@
     <h3>best scanner XSS in world</h3>
 
 
+    usage:
     <h2>
-    usage
-
-
+        pip install -r requeirmantes
     </h2>
 
 
