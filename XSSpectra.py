@@ -3,11 +3,20 @@
 from __future__ import print_function
 
 from core.colors import end, red, white, bad, info
-#test i am elyas
-# Just a fancy ass banner
+
 print('''%s
-\tXSStrike %sv3.1.5
-%s''' % (red, white, end))
+\tin the name of god
+\tبه نام خدا
+\t این ابزار توسط شرکت فرتا بومی سازی شده است
+____  ___  _________ _________                     __                            
+\   \/  / /   _____//   _____/_____   ____   _____/  |_____________              
+ \     /  \_____  \ \_____  \\____ \_/ __ \_/ ___\   __\_  __ \__  \             
+ /     \  /        \/        \  |_> >  ___/\  \___|  |  |  | \// __ \_           
+/___/\  \/_______  /_______  /   __/ \___  >\___  >__|  |__|  (____  /           
+      \_/        \/        \/|__|        \/     \/                 \/            
+
+\tXSSpectra %sversion 1.0.0
+%s''' % ('\x1b[34m', red, end))
 
 try:
     import concurrent.futures
@@ -21,22 +30,20 @@ try:
         if(ret_code != 0):
             print('%s fuzzywuzzy installation failed.' % bad)
             quit()
-        print ('%s fuzzywuzzy has been installed, restart XSStrike.' % info)
+        print ('%s fuzzywuzzy has been installed, restart XSSpectra.' % info)
         quit()
 except ImportError:  # throws error in python2
-    print('%s XSStrike isn\'t compatible with python2.\n Use python > 3.4 to run XSStrike.' % bad)
+    print('%s XSSpectra isn\'t compatible with python2.\n Use python > 3.4 to run XSSpectra.' % bad)
     quit()
 
-# Let's import whatever we need from standard lib
+
 import sys
 import json
 import argparse
 
-# ... and configurations core lib
 import core.config
 import core.log
 
-# Processing command line arguments, where dest var names will be mapped to local vars with the same name
 parser = argparse.ArgumentParser()
 parser.add_argument('-u', '--url', help='url', dest='target')
 parser.add_argument('--data', help='post data', dest='paramData')
@@ -82,8 +89,6 @@ parser.add_argument('--log-file', help='Name of the file to log', dest='log_file
                     default=core.log.log_file)
 args = parser.parse_args()
 
-# Pull all parameter values of dict from argparse namespace into local variables of name == key
-# The following works, but the static checkers are too static ;-) locals().update(vars(args))
 target = args.target
 path = args.path
 jsonData = args.jsonData
