@@ -1,13 +1,7 @@
-<center>
-    <h1>XSSpectra</h1>
-    <h3>best scanner XSS in world</h3>
+best scanner for xss
 
+<h1>XSSpectra</h1>
 
-    usage:
-    <h2>
-        pip install -r requeirmantes
-    </h2>
+<h2>usage</h2>
 
-
-
-</center>
+pip install -r requiramens.txt
