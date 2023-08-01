@@ -4,4 +4,6 @@ best scanner for xss
 
 <h2>usage</h2>
 
-pip install -r requiramens.txt
+#### Generic SQL Injection Payloads
+
+    pip install -r requiramens.txt
