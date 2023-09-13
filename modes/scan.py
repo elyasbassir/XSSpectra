@@ -1,7 +1,7 @@
 import copy
 import re
 from urllib.parse import urlparse, quote, unquote
-
+from colorama import Fore
 from core.checker import checker
 from core.colors import end, green, que
 import core.config
@@ -104,9 +104,11 @@ def scan(target, paramData, encoding, headers, delay, timeout, skipDOM, skip):
                 bestEfficiency = max(efficiencies)
                 if bestEfficiency == 100 or (vect[0] == '\\' and bestEfficiency >= 95):
                     logger.red_line()
-                    logger.good('Payload: %s' % loggerVector)
-                    logger.info('Efficiency: %i' % bestEfficiency)
-                    logger.info('Confidence: %i' % confidence)
+                    logger.good(Fore.WHITE+'Payload: %s' % loggerVector)
+                    logger.info(Fore.RED+'Efficiency: %i' % bestEfficiency)
+                    logger.info(Fore.WHITE+'Confidence: %i' % confidence)
+                    logger.info(Fore.RED+"Address vulnerability :"+ Fore.WHITE+ url)
+                    logger.info(Fore.WHITE+"timeout :"+ Fore.BLUE+str(timeout))
                     if not skip:
                         choice = input(
                             '%s Would you like to continue scanning? [y/N] ' % que).lower()

@@ -21,7 +21,7 @@ def wafDetector(url, params, headers, GET, delay, timeout):
     headers = str(response.headers)
     logger.debug('Waf Detector code: {}'.format(code))
     logger.debug_json('Waf Detector headers:', response.headers)
-
+    return None
     if int(code) >= 400:
         bestMatch = [0, None]
         for wafName, wafSignature in wafSignatures.items():

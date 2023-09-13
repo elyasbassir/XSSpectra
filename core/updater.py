@@ -12,7 +12,7 @@ logger = setup_logger(__name__)
 def updater():
     logger.run('Checking for updates')
     latestCommit = get(
-        'https://raw.githubusercontent.com/s0md3v/XSStrike/master/core/config.py').text
+        'https://raw.githubusercontent.com/elyas-bassir/xssspectra/master/core/config.py').text
 
     if changes not in latestCommit:  # just a hack to see if a new version is available
         changelog = re.search(r"changes = '''(.*?)'''", latestCommit)
@@ -31,9 +31,9 @@ def updater():
         if choice != 'n':
             logger.run('Updating XSStrike')
             os.system(
-                'git clone --quiet https://github.com/s0md3v/XSStrike %s' % (folder))
+                'git clone --quiet https://github.com/elyas-bassir/xssspectra %s' % (folder))
             os.system('cp -r %s/%s/* %s && rm -r %s/%s/ 2>/dev/null' %
                       (path, folder, path, path, folder))
             logger.good('Update successful!')
     else:
-        logger.good('XSStrike is up to date!')
+        logger.good('xssspectra is up to date!')

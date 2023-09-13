@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 from __future__ import print_function
-
+from colorama import Fore
+print(Fore.RED + 'This text is red in color')
 from core.colors import end, red, white, bad, info
 
 print('''%s
@@ -43,15 +44,13 @@ import argparse
 
 import core.config
 import core.log
-
+print(Fore.WHITE)
 parser = argparse.ArgumentParser()
-parser.add_argument('-u', '--url', help='url', dest='target')
+parser.add_argument('-u', '--url', help='address website', dest='target')
 parser.add_argument('--data', help='post data', dest='paramData')
 parser.add_argument('-e', '--encode', help='encode payloads', dest='encode')
 parser.add_argument('--fuzzer', help='fuzzer',
                     dest='fuzz', action='store_true')
-parser.add_argument('--update', help='update',
-                    dest='update', action='store_true')
 parser.add_argument('--timeout', help='timeout',
                     dest='timeout', type=int, default=core.config.timeout)
 parser.add_argument('--proxy', help='use prox(y|ies)',
@@ -95,9 +94,9 @@ jsonData = args.jsonData
 paramData = args.paramData
 encode = args.encode
 fuzz = args.fuzz
-update = args.update
 timeout = args.timeout
 proxy = args.proxy
+update = 0
 recursive = args.recursive
 args_file = args.args_file
 args_seeds = args.args_seeds
